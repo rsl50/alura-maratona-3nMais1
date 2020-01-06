@@ -11,17 +11,17 @@ public class Main {
 
         calculaCiclos(999999);
 
-        while (scanner.hasNextLine()) {
-            int menor = scanner.nextInt();
-            int maior = scanner.nextInt();
+        while (scanner.hasNext()) {
+            int i = scanner.nextInt();
+            int j = scanner.nextInt();
 
             int maiorCiclo = 1;
-            for (int n = menor; n <= maior; n++) {
+            for (int n = Math.min(i, j); n <= Math.max(i, j); n++) {
                 int resultado = calculaCiclos(n);
                 if (resultado > maiorCiclo) maiorCiclo = resultado;
             }
 
-            System.out.println(menor + " " + maior + " " + maiorCiclo);
+            System.out.println(i + " " + j + " " + maiorCiclo);
         }
     }
 
@@ -32,6 +32,8 @@ public class Main {
             else n = n / 2;
 
             contagem_ciclos++;
+
+            //if (contagem_ciclos > ‭4294967295‬) break;
         }
 
         return contagem_ciclos;
